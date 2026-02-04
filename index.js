@@ -34,6 +34,9 @@ let posts = [
         content: "This is the content of the fourth post."
     }
 ]
+app.get("/", (req, res) => {
+    res.redirect("/posts");
+});
 app.get('/posts', (req, res) => {
     res.render('index.ejs', {  posts });
 });                                     
