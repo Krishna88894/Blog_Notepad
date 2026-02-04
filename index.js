@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 8080;
 const path = require('path');
 const {v4: uuidv4} = require('uuid');
 const methodOverride = require("method-override");
@@ -13,9 +13,9 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "public")));
 
-app.listen(port, () => {
-    console.log("Server is running on port " + port);
-});
+const PORT = process.env.PORT || 8080;
+app.listen(PORT);
+
 let posts = [
     {   id: uuidv4(),
         username: "broitskrishna",
@@ -33,7 +33,7 @@ let posts = [
         username: "bhaktipath",
         content: "This is the content of the fourth post."
     }
-]
+];
 app.get("/", (req, res) => {
     res.redirect("/posts");
 });
