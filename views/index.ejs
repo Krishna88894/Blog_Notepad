@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See All Posts</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2>Your Blogs Notepad</h2>
+    <% for(post of posts) { %>
+      <div class="posts">
+        <h3 class="user"><i> @<%= post.username %></i>
+        </h3>
+        <h4 class="content"> 
+            <%= post.content %>
+        </h4>
+        <a href="http://localhost:3000/posts/<%= post.id %>">See in Detail</a>
+        <a href="http://localhost:3000/posts/<%= post.id %>/edit">Edit Post</a>
+        <a href="http://localhost:3000/posts/<%= post.id %>/delete">Delete Post</a>
+      </div>
+    <%}%>
+    <br>
+    <br>
+    <a href="http://localhost:3000/posts/new">Create New Post</a>
+</body>
+</html>
